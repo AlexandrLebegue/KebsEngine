@@ -18,13 +18,14 @@ target_sources(${PROJECT_NAME}
 PRIVATE src/sprite.cpp
 PRIVATE src/graphic-world.cpp
 PRIVATE src/screen.cpp
-
+PRIVATE src/animated-sprite.cpp
 )
 
 target_include_directories(${PROJECT_NAME} 
 PUBLIC include/sprite.hpp
 PUBLIC include/graphic-world.hpp
 PUBLIC include/screen.hpp
+PUBLIC include/animated-sprite.hpp 
 )
 
 include_directories(include/)

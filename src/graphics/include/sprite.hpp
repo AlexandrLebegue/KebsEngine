@@ -17,7 +17,7 @@ public:
     
     void setPosition(int x, int y); // New method to set the position
     void Sprite::prepareDraw(SDL_Renderer* pRenderer);
-    void draw(SDL_Renderer* pRenderer);
+    virtual void draw(SDL_Renderer* pRenderer);
 
 
 };
