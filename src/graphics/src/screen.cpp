@@ -31,12 +31,6 @@ void Screen::createWindow(int& height, int& width) {
 	SDL_RenderClear(m_Renderer);
 }
 
-void Screen::draw(Sprite& pSprite, int x, int y, int size) {
-	SDL_Rect dest = {x,y,pSprite.m_Sprite->w/size, pSprite.m_Sprite->h / size };
-	SDL_RenderCopy(m_Renderer, pSprite.m_CurrentTexture, NULL, &dest); // Copie du sprite grâce au SDL_Renderer
-	
-}
-
 void Screen::setBackgroundColor(int r, int g, int b) {
     SDL_SetRenderDrawColor(m_Renderer, r, g, b, 255);
     SDL_RenderClear(m_Renderer);

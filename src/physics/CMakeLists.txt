@@ -14,12 +14,12 @@ add_library(${PROJECT_NAME})
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME} 
-PRIVATE src/object.cpp
+PRIVATE src/physic-object.cpp
 PRIVATE src/physic-world.cpp
 )
 
 target_include_directories(${PROJECT_NAME} 
-PUBLIC include/object.hpp
+PUBLIC include/physic-object.hpp
 PUBLIC include/physic-world.hpp
 )
 

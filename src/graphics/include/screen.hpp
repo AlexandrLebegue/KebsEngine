@@ -1,3 +1,4 @@
+#pragma once
 #include <SDL.h>
 #include "sprite.hpp"
 
@@ -16,18 +17,6 @@ public:
 	 */
 	Screen(int width, int height);
 	Screen();
-	/**
-	 * Draws a sprite on the screen at the specified coordinates and size.
-	 * 
-	 * @param sprite A reference to the Sprite object to be drawn.
-	 * @param x The x-coordinate on the screen where the sprite's top-left corner should be placed.
-	 * @param y The y-coordinate on the screen where the sprite's top-left corner should be placed.
-	 * @param size The size to scale the sprite to. The sprite will be scaled uniformly.
-	 * 
-	 * This method places a sprite on the screen at the specified location and scales it to the specified size.
-	 * It uses the SDL_Renderer to render the sprite. The sprite must be loaded and ready to be drawn.
-	 */
-	void draw(Sprite& sprite, int x, int y, int size);
 
 	/**
 	 * Updates the screen to display the drawn graphics.
@@ -60,6 +49,9 @@ public:
 	void clearScreen();
 
 	void setBackgroundColor(int red, int blue, int green);
+	SDL_Renderer* getRenderer(){ return m_Renderer;}
+	int getScreenWidth() 	{return m_ScreenWidth;}
+	int getScreenHeight() 	{return m_ScreenHeight;}
 
 private:
 	int m_ScreenWidth, m_ScreenHeight;

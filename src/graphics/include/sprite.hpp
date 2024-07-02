@@ -1,4 +1,6 @@
-﻿#include "SDL.h"
+﻿#pragma once
+
+#include "SDL.h"
 #include <string>
 #include <vector>
 
@@ -6,27 +8,16 @@
 class Sprite {
 
 public:
-	SDL_Surface* m_Sprite;
+	SDL_Surface* m_Surface;
 	SDL_Texture* m_CurrentTexture;
-	SDL_Renderer* m_Renderer;
-	int m_CurrentTextureIndex;
-	std::vector<SDL_Texture*> m_Textures;
+    int m_x, m_y, m_size;
 
-	Sprite(const char* pFilepath, SDL_Renderer* pRenderer);
-	Sprite(SDL_Renderer* pRenderer);
+	Sprite(const char* pFilepath);
+    Sprite(SDL_Surface* pSurface);
     
-    
-    /**
-     * Updates the texture of the sprite to the next texture in the sequence.
-     *
-     * This function updates the current texture of the sprite to the next one in its texture sequence.
-     * If the current texture is the last one in the sequence, this function does nothing.
-     * Exceptions:
-     *  - This function does not explicitly throw exceptions but can result in undefined behavior
-     *    if the sprite's texture vector is empty or if there are issues with the SDL_Texture objects it contains.
-     */
-	void updateTexture();
-
+    void setPosition(int x, int y); // New method to set the position
+    void Sprite::prepareDraw(SDL_Renderer* pRenderer);
+    void draw(SDL_Renderer* pRenderer);
 
 
 };

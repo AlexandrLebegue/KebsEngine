@@ -56,3 +56,7 @@ elseif()
 		${SDL2_PATH}/lib/x86/SDL2.dll
 		${BIN_DIR}/$<CONFIG>/SDL2.dll  )
 endif()
+
+add_custom_command( TARGET KebsEngine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory 
+		${CMAKE_SOURCE_DIR}/src/graphics/ressources/ 
+		${BIN_DIR}/$<CONFIG>/ressources/ )
