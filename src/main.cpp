@@ -21,9 +21,13 @@ int main(int argc, char* argv[])
 	
 	Sprite sprite = Sprite("ressources/one_sprite.bmp");
 	Sprite sprite2 = Sprite("ressources/one_sprite.bmp");
+	Sprite sprite3 = Sprite("ressources/sprite_01_png.png");
+
+
 
 	graphWorld.addSprite(&sprite);
 	graphWorld.addSprite(&sprite2);
+	graphWorld.addSprite(&sprite3);
 
 	sprite.setPosition(2000, 5000);
 	sprite2.setPosition(4000, 50);
@@ -45,6 +49,7 @@ int main(int argc, char* argv[])
 		screen.display();
 		sprite.setPosition( rand() % screen.getScreenWidth() + 1,   rand() % screen.getScreenHeight() + 1);
 		sprite2.setPosition( rand() % screen.getScreenWidth() + 1,  rand() % screen.getScreenHeight() + 1);
+		sprite3.setPosition( rand() % screen.getScreenWidth() + 1,  rand() % screen.getScreenHeight() + 1);
 
 		SDL_Delay(550);
 	}

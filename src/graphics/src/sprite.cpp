@@ -1,9 +1,16 @@
 ﻿#include "sprite.hpp"
-
+#include <SDL_image.h>
 #include <iostream>
 
 Sprite::Sprite(const char* filepath) {
-	m_Surface = SDL_LoadBMP(filepath);
+	 // Initialize SDL_image with PNG loading
+    if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
+        std::cout << "SDL_image could not initialize! SDL_image Error:" << IMG_GetError() << std::endl;
+    }
+	m_Surface =  IMG_Load(filepath);
+    if (m_Surface == NULL) {
+        std::cout << "Unable to load image  " << filepath <<  IMG_GetError() << std::endl;
+    }
     m_CurrentTexture = NULL;
     m_x = 0;
     m_y = 0;

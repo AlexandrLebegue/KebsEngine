@@ -16,7 +16,9 @@ set(BIN_DIR ${CMAKE_BINARY_DIR}/bin)
 
 
 find_package(SDL2 REQUIRED)
+find_package(SDL2_image)
 include_directories(${SDL2_INCLUDE_DIR})
+include_directories(${SDL2_IMAGE_INCLUDE_DIR})
 
 add_subdirectory(src/graphics)
 add_subdirectory(src/physics)
@@ -32,6 +34,7 @@ add_executable(KebsEngine
 
 target_link_libraries(KebsEngine 
 	${SDL2_LIBRARY}
+	${SDL2_IMAGE_LIBRARY}
 	components
 	graphics
 	physics
@@ -43,15 +46,15 @@ set_target_properties(KebsEngine PROPERTIES
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8) 
 	add_custom_command( TARGET KebsEngine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different 
-		${SDL2_PATH}/lib/x64/SDL2.dll 
-		${BIN_DIR}/$<CONFIG>/SDL2.dll  )
+		${SDL2_IMAGE_PATH}/lib/x64/SDL2_image.dll 
+		${BIN_DIR}/$<CONFIG>/SDL2_image.dll  )
 	add_custom_command( TARGET KebsEngine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		${SDL2_PATH}/lib/x64/SDL2.dll
 		${BIN_DIR}/$<CONFIG>/SDL2.dll  )
 elseif()
 	add_custom_command( TARGET KebsEngine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different 
-		${SDL2_PATH}/lib/x86/SDL2.dll 
-		${BIN_DIR}/$<CONFIG>/SDL2.dll  )
+		${SDL2_IMAGE_PATH}/lib/x86/SDL2_image.dll 
+		${BIN_DIR}/$<CONFIG>/SDL2_image.dll  )
 	add_custom_command( TARGET KebsEngine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		${SDL2_PATH}/lib/x86/SDL2.dll
 		${BIN_DIR}/$<CONFIG>/SDL2.dll  )

@@ -17,7 +17,8 @@
         "description": "Configure pour une build en mode Release",
         "generator": "Visual Studio 17 2022", 
         "cacheVariables": {
-            "SDL2_PATH": "${sourceDir}/sdl_installation/windows_install/SDL2-2.30.4"
+            "SDL2_PATH": "${sourceDir}/sdl_installation/windows_install/SDL2-2.30.4",
+            "SDL2_IMAGE_PATH": "${sourceDir}/sdl_installation/windows_install/SDL2_image-2.8.2"
         }
       }
 
