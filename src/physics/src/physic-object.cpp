@@ -1,11 +1,10 @@
-﻿// CMakeProject3.cpp : Defines the entry point for the application.
-//
+﻿#include "physic-object.hpp"
 
-#include <iostream>
+PhysicObject::PhysicObject(float x, float y, float width, float height)
+    : m_x(x), m_y(y), m_width(width), m_height(height) {}
 
-
-
-void toto()
-{
-
-}
+float PhysicObject::getX() const { return m_x; }
+float PhysicObject::getY() const { return m_y; }
+float PhysicObject::getWidth() const { return m_width; }
+float PhysicObject::getHeight() const { return m_height; }
+void PhysicObject::setPosition(float x, float y) { m_x = x; m_y = y; }

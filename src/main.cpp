@@ -7,6 +7,8 @@
 #include "graphics/include/screen.hpp"
 #include "graphics/include/graphic-world.hpp"
 #include "graphics/include/animated-sprite.hpp"
+#include "physics/include/collision-box.hpp"
+#include "physics/include/physic-world.hpp"
 
 using namespace std;
 
@@ -20,12 +22,18 @@ int main(int argc, char* argv[])
 
 	Screen screen = Screen(600, 600);
 	GraphicWorld graphWorld = GraphicWorld(&screen);
-	
+	PhysicWorld  physicWorld = PhysicWorld();
+
 	Sprite sprite =  Sprite("ressources/one_sprite.bmp");
 	Sprite sprite2 = Sprite("ressources/one_sprite.bmp");
 	Sprite sprite3 = Sprite("ressources/sprite_01_png.png");
 	AnimatedSprite animatedSprite = AnimatedSprite("ressources/lepruchum.png", 8, 8, 10, 200);
 
+	CollisionBox collisionbox1 = CollisionBox(0, 0, 8, 8);
+	CollisionBox collisionbox2 = CollisionBox(0, 0, 8, 8);
+
+	physicWorld.addCollisionBox(&collisionbox1);
+	physicWorld.addCollisionBox(&collisionbox2);
 
 	graphWorld.addSprite(&sprite);
 	graphWorld.addSprite(&sprite2);
@@ -62,6 +70,7 @@ int main(int argc, char* argv[])
 		}
 		screen.clearScreen();
 		graphWorld.updateWorld();
+		physicWorld.updateCollisionBoxes();
 		screen.display();
 		if (activate_posture)
 		{
@@ -70,6 +79,10 @@ int main(int argc, char* argv[])
 			sprite3.setPosition( (sprite3.m_x + 1) % screen.getScreenWidth(),  sprite3.m_y);
 		}
 		animatedSprite.setPosition(x,y);
+
+		collisionbox1.setPosition((float)animatedSprite.m_x, (float) animatedSprite.m_y);
+		collisionbox2.setPosition((float)sprite.m_x, (float) sprite.m_y);
+
 	}
 
 	SDL_Quit();

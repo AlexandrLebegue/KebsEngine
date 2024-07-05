@@ -16,10 +16,17 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_sources(${PROJECT_NAME} 
 PRIVATE src/physic-object.cpp
 PRIVATE src/physic-world.cpp
+PRIVATE src/collision-box.cpp
+PRIVATE src/movable-object.cpp
+
 )
 
 target_include_directories(${PROJECT_NAME} 
 PUBLIC include/physic-object.hpp
 PUBLIC include/physic-world.hpp
+PUBLIC include/collision-box.hpp
+PUBLIC include/movable-object.hpp
 )
+
+include_directories(include/)
 
