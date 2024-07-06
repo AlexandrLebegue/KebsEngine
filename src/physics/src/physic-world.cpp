@@ -12,7 +12,7 @@ void PhysicWorld::updateCollisionBoxes() {
         for (CollisionBox* otherBox : m_CollisionBoxes) {
             if (box != otherBox && box->isColliding(otherBox)) {
                 std::cout<<"BOX COLLIDING " << box << " vs " << otherBox << std::endl;
-                std::cout<<"Box1 " << box->getX() << ", "<< box->getY() << " vs " << " Box2 " << otherBox->getX() << ", "<< otherBox->getY() << std::endl;
+                std::cout<<"Box1 " << box->getX() << ", "<< box->getY() << box->getWidth() << ", "<< box->getHeight() <<  " vs " << " Box2 " << otherBox->getX() << ", "<< otherBox->getY() << otherBox->getWidth() << ", "<< otherBox->getHeight() << std::endl;
 
             }
         }

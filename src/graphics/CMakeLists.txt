@@ -19,6 +19,10 @@ PRIVATE src/sprite.cpp
 PRIVATE src/graphic-world.cpp
 PRIVATE src/screen.cpp
 PRIVATE src/animated-sprite.cpp
+PRIVATE src/tilemap.cpp
+# PRIVATE src/tile.cpp
+# PRIVATE src/layer.cpp
+
 )
 
 target_include_directories(${PROJECT_NAME} 
@@ -26,6 +30,10 @@ PUBLIC include/sprite.hpp
 PUBLIC include/graphic-world.hpp
 PUBLIC include/screen.hpp
 PUBLIC include/animated-sprite.hpp 
+PUBLIC include/tilemap.hpp
+PRIVATE include/tile.hpp
+PRIVATE include/layer.hpp
+PRIVATE external/nlohmann/json.hpp
 )
 
-include_directories(include/)
+include_directories(include/ external/)
